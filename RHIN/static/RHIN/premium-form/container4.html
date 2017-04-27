@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Byadmin - Bootstrap 3 Responsive Admin Template">
+    <meta name="author" content="Bylancer">
+    <meta name="keyword" content="Byadmin, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
+    <link rel="shortcut icon" href="../img/favicon.png">
+
+    <title>Ajax/Php Form | Byadmin - Bootstrap 3 Responsive Admin Template</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <!-- bootstrap theme -->
+    <link href="../css/bootstrap-theme.css" rel="stylesheet">
+    <!--external css-->
+    <!-- font icon -->
+    <link href="../css/elegant-icons-style.css" rel="stylesheet" />
+    <link href="../assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <!-- Custom styles -->
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/style-responsive.css" rel="stylesheet" />
+    <!--Animation css-->
+    <link href="../css/animate.min.css" rel="stylesheet">
+    <!--css for this page-->
+    <link rel="stylesheet" href="../assets/spider_form/dist/css/formValidation.css"/>
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 -->
+    <!--[if lt IE 9]>
+    <script src="../js/html5shiv.js"></script>
+    <script src="../js/respond.min.js"></script>
+    <script src="../js/lte-ie7.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+<!-- container section start -->
+<section id="container" class="">
+    <!--header start-->
+    <header class="header white-bg">
+        <div class="toggle-nav">
+            <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"></div>
+        </div>
+
+        <!--logo start-->
+        <a href="../index.html" class="logo">By<span>admin</span></a>
+        <!--logo end-->
+
+        <div class="nav search-row" id="top_menu">
+            <!--  search form start -->
+            <ul class="nav top-menu">
+                <li>
+                    <form class="navbar-form">
+                        <input class="form-control" placeholder="Search" type="text">
+                    </form>
+                </li>
+            </ul>
+            <!--  search form end -->
+        </div>
+        <div class="top-nav notification-row">
+            <!-- notificatoin dropdown start-->
+            <ul class="nav pull-right top-menu">
+                <!-- task notificatoin start -->
+                <li id="task_notificatoin_bar" class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="container4.html#">
+                        <span class="icon-task-l"></span>
+                        <span class="badge bg-info">5</span>
+                    </a>
+                    <ul class="dropdown-menu extended tasks-bar animated fadeInUp">
+                        <div class="notify-arrow notify-arrow-blue"></div>
+                        <li>
+                            <p class="blue">You have <span class="bold">5 pending</span> tasks</p>
+                        </li>
+                        <li>
+                            <a href="container4.html#">
+                                <div class="task-info">
+                                    <div class="desc">Design PSD </div>
+                                    <div class="percent">90%</div>
+                                </div>
+                                <div class="progress progress-striped">
+                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%">
+                                        <span class="sr-only">90% Complete (success)</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="container4.html#">
+                                <div class="task-info">
+                                    <div class="desc">
+                                        Project 1
+                                    </div>
+                                    <div class="percent">30%</div>
+                                </div>
+                                <div class="progress progress-striped">
+                                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 30%">
+                                        <span class="sr-only">30% Complete (warning)</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="container4.html#">
+                                <div class="task-info">
+                                    <div class="desc">Digital Marketing</div>
+                                    <div class="percent">80%</div>
+                                </div>
+                                <div class="progress progress-striped">
+                                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                                        <span class="sr-only">80% Complete</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="container4.html#">
+                                <div class="task-info">
+                                    <div class="desc">Logo Designing</div>
+                                    <div class="percent">78%</div>
+                                </div>
+                                <div class="progress progress-striped">
+                                    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100" style="width: 78%">
+                                        <span class="sr-only">78% Complete (danger)</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="container4.html#">
+                                <div class="task-info">
+                                    <div class="desc">Mobile App</div>
+                                    <div class="percent">50%</div>
+                                </div>
+                                <div class="progress progress-striped active">
+                                    <div class="progress-bar"  role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
+                                        <span class="sr-only">50% Complete</span>
+                                    </div>
+                                </div>
+
+                            </a>
+                        </li>
+                        <li class="external">
+                            <a href="container4.html#">See All Tasks</a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- task notificatoin end -->
+                <!-- inbox notificatoin start-->
+                <li id="mail_notificatoin_bar" class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="container4.html#">
+                        <i class="icon-envelope-l"></i>
+                        <span class="badge bg-important">5</span>
+                    </a>
+                    <ul class="dropdown-menu extended inbox animated fadeInUp">
+                        <div class="notify-arrow notify-arrow-blue"></div>
+                        <li>
+                            <p class="blue">You have <span class="bold">5 new</span> messages</p>
+                        </li>
+                        <li>
+                            <a href="container4.html#">
+                                <span class="photo"><img alt="avatar" src="../img/avatar-mini.jpg"></span>
+                                    <span class="subject">
+                                    <span class="from">Greg  Martin</span>
+                                    <span class="time">1 min</span>
+                                    </span>
+                                    <span class="message">
+                                        I really like this admin panel.
+                                    </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="container4.html#">
+                                <span class="photo"><img alt="avatar" src="../img/avatar-mini2.jpg"></span>
+                                    <span class="subject">
+                                    <span class="from">Bob   Mckenzie</span>
+                                    <span class="time">5 mins</span>
+                                    </span>
+                                    <span class="message">
+                                     Hi, What is next project plan?
+                                    </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="container4.html#">
+                                <span class="photo"><img alt="avatar" src="../img/avatar-mini3.jpg"></span>
+                                    <span class="subject">
+                                    <span class="from">Phillip   Park</span>
+                                    <span class="time">2 hrs</span>
+                                    </span>
+                                    <span class="message">
+                                        I am like to buy this Admin Template.
+                                    </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="container4.html#">
+                                <span class="photo"><img alt="avatar" src="../img/avatar-mini4.jpg"></span>
+                                    <span class="subject">
+                                    <span class="from">Ray   Munoz</span>
+                                    <span class="time">1 day</span>
+                                    </span>
+                                    <span class="message">
+                                        Icon fonts are great.
+                                    </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="container4.html#">See all messages</a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- inbox notificatoin end -->
+                <!-- alert notification start-->
+                <li id="alert_notificatoin_bar" class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="container4.html#">
+
+                        <i class="icon-bell-l"></i>
+                        <span class="badge bg-warning">7</span>
+                    </a>
+                    <ul class="dropdown-menu extended notification animated fadeInUp">
+                        <div class="notify-arrow notify-arrow-blue"></div>
+                        <li>
+                            <p class="blue">You have <span class="bold">4 new</span> notifications</p>
+                        </li>
+                        <li>
+                            <a href="container4.html#">
+                                <span class="label label-primary"><i class="icon_profile"></i></span>
+                                Friend Request
+                                <span class="small italic pull-right">5 mins</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="container4.html#">
+                                <span class="label label-warning"><i class="icon_pin"></i></span>
+                                John location.
+                                <span class="small italic pull-right">50 mins</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="container4.html#">
+                                <span class="label label-danger"><i class="icon_book_alt"></i></span>
+                                Project 3 Completed.
+                                <span class="small italic pull-right">1 hr</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="container4.html#">
+                                <span class="label label-success"><i class="icon_like"></i></span>
+                                Mick appreciated your work.
+                                <span class="small italic pull-right"> Today</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="container4.html#">See all notifications</a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- alert notification end-->
+                <!-- user login dropdown start-->
+                <li class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="container4.html#">
+                            <span class="profile-ava">
+                                <img alt="" src="../img/avatar1_small.jpg">
+                            </span>
+                        <span class="username">Jhon Doe</span>
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu extended logout animated fadeInUp">
+                        <div class="notify-arrow notify-arrow-blue"></div>
+                        <li class="eborder-top">
+                            <a href="container4.html#"><i class="icon_profile"></i> My Profile</a>
+                        </li>
+                        <li>
+                            <a href="container4.html#"><i class="icon_mail_alt"></i> My Inbox</a>
+                        </li>
+                        <li>
+                            <a href="container4.html#"><i class="icon_clock_alt"></i> Timeline</a>
+                        </li>
+                        <li>
+                            <a href="container4.html#"><i class="icon_chat_alt"></i> Chats</a>
+                        </li>
+                        <li>
+                            <a href="../login.html"><i class="icon_key_alt"></i> Log Out</a>
+                        </li>
+                        <li>
+                            <a href="../documentation.html"><i class="icon_key_alt"></i> Documentation</a>
+                        </li>
+                        <li>
+                            <a href="../documentation.html"><i class="icon_key_alt"></i> Documentation</a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- user login dropdown end -->
+            </ul>
+            <!-- notificatoin dropdown end-->
+        </div>
+    </header>
+    <!--header end-->
+
+    <!--sidebar start-->
+    <aside>
+        <div id="sidebar"  class="nav-collapse ">
+            <!-- sidebar menu start-->
+            <ul class="sidebar-menu">
+                <li>
+                    <a class="" href="../index.html">
+                        <i class="icon_house_alt"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="sub-menu">
+                    <a href="javascript:;" class="">
+                        <i class="icon_ribbon_alt"></i>
+                        <span>Basic UI Elements</span>
+                        <span class="menu-arrow arrow_carrot-right"></span>
+                    </a>
+                    <ul class="sub">
+                        <li><a class="" href="../buttons.html">Buttons</a></li>
+                        <li><a class="" href="../general.html">General</a></li>
+                        <li><a class="" href="../font_awesome.html">Font Awesome</a></li>
+                        <li><a class="" href="../elegant-icon-font.html">Elegant Icon Font</a></li>
+                        <li><a class="" href="../grids.html">Grids</a></li>
+                        <li><a class="" href="../dropzone.html">Dropzone File Upload</a></li>
+                        <li><a class="" href="../checkboxes-radio.html">Radio & Checkbox</a></li>
+                        <li><a class="" href="../Xeditable.html">Xeditable</a></li>
+                        <li><a class="" href="../sweet-alert.html">Sweet Alert</a></li>
+                        <li><a class="" href="../typography.html">Typography</a></li>
+                    </ul>
+                </li>
+                <li class="sub-menu">
+                    <a href="javascript:;" class="">
+                        <i class="icon_desktop"></i>
+                        <span>Advance UI Elements</span>
+                        <span class="menu-arrow arrow_carrot-right"></span>
+                    </a>
+                    <ul class="sub">
+                        <li><a class="" href="../zecrop.html">Ze Crop</a></li>
+                        <li><a class="" href="../stylishbutton.html">Premium Button</a></li>
+                        <li><a class="" href="../sliders.html">Sliders</a></li>
+                        <li><a class="" href="../star_rating.html">Star Rating</a></li>
+                        <li><a class="" href="../ui-animation.html">CSS3 Animation</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="" href="../widgets.html">
+                        <i class="icon_genius"></i>
+                        <span>Widgets</span>
+                    </a>
+                </li>
+                <li class="sub-menu">
+                    <a href="javascript:;" class="">
+                        <i class="icon_piechart"></i>
+                        <span>Charts</span>
+                        <span class="menu-arrow arrow_carrot-right"></span>
+                    </a>
+                    <ul class="sub">
+                        <li><a class="" href="../charts-flot.html">Flot-Chart</a></li>
+                        <li><a class="" href="../chart-chartjs.html">ChartJs</a></li>
+                        <li><a class="" href="../chart-morris.html">Morris</a></li>
+                        <li><a class="" href="../chart-sparkline.html">Sparkline</a></li>
+                    </ul>
+                </li>
+                <li class="sub-menu">
+                    <a href="javascript:;" class="">
+                        <i class="icon_document_alt"></i>
+                        <span>Form Stuff</span>
+                        <span class="menu-arrow arrow_carrot-right"></span>
+                    </a>
+                    <ul class="sub">
+                        <li><a class="" href="../form_component.html">Form Components</a></li>
+                        <li><a class="" href="../form_wizard.html">Form Wizard</a></li>
+                        <li><a class="" href="../form_validation.html">Form Validation</a></li>
+                    </ul>
+                </li>
+                <li class="sub-menu active">
+                    <a href="javascript:;" class="">
+                        <i class="icon_drive"></i>
+                        <span>Premium Form</span>
+                        <span class="menu-arrow arrow_carrot-right"></span>
+                    </a>
+                    <ul class="sub">
+                        <li><a class="" href="mailgun.html">Mailgun Validate Email</a></li>
+                        <li><a class="" href="selector.html">Credit Card Validation</a></li>
+                        <li><a class="" href="typehead.html">Form With Typehead</a></li>
+                        <li><a class="" href="dynamic.html">Dynamic Fields</a></li>
+                        <li><a class="" href="dynamic2.html">Dynamic Phone Number</a></li>
+                        <li><a class="" href="dynamic3.html">Dynamic Address Form</a></li>
+                        <li><a class="" href="dynamic4.html">Multi Dynamic Option</a></li>
+                        <li><a class="" href="file.html">File Validator</a></li>
+                        <li><a class="" href="tab.html">Tab Dynamic Form</a></li>
+                        <li><a class="" href="ajaxSubmit.html">Ajax Submit</a></li>
+                        <li><a class="" href="attribute.html">Sign Up With Attribute</a></li>
+                        <li><a class="" href="collapse.html">Collapseble Form</a></li>
+                        <li><a class="" href="choice.html">Force Select Choice</a></li>
+                        <li><a class="" href="container.html">Custom Error Container</a></li>
+                        <li><a class="" href="container2.html">Error Container-2</a></li>
+                        <li><a class="" href="container3.html">Show Error Tooltip</a></li>
+                        <li class="active"><a class="" href="container4.html">Customizing Error</a></li>
+                        <li><a class="" href="sem-horizontalForm.html">Semantic UI Form</a></li>
+                        <li><a class="" href="sem-horizontalFormTooltip.html">Semantic UI Form-2</a></li>
+                        <li><a class="" href="sem-stackedForm.html">Semantic UI Form-3</a></li>
+                        <li><a class="" href="sem-stackedFormTooltip.html">Semantic UI Form-4</a></li>
+                        <li><a class="" href="uikit-horizontalForm.html">Ui Kit Form</a></li>
+                        <li><a class="" href="uikit-horizontalFormTooltip.html">Ui Kit Form2</a></li>
+                        <li><a class="" href="uikit-stackedForm.html">Ui Kit Form3</a></li>
+                        <li><a class="" href="uikit-stackedFormTooltip.html">Ui Kit Form4</a></li>
+                        <li><a class="" href="defaultMessage.html">Default Messages</a></li>
+                        <li><a class="" href="enable.html">Enable OnCheck</a></li>
+                        <li><a class="" href="enable2.html">Enable/Disable Validator</a></li>
+                        <li><a class="" href="invisible.html">Dynamic Contact Field</a></li>
+                        <li><a class="" href="multiple.html">Multiple Elements</a></li>
+                        <li><a class="" href="event.html">Signup With Choice</a></li>
+                        <li><a class="" href="event2.html">Zip/Pin Code Validator</a></li>
+                        <li><a class="" href="event3.html">Dynamic Captcha</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="" href="../inbox.html">
+                        <i class="icon_mail_alt"></i>
+                        <span>Mail </span>
+                        <span class="label label-danger pull-right mail-info badge">2</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="" href="../calendar.html">
+                        <i class="icon_calendar"></i>
+                        <span>Calendar</span>
+                        <span class="label label-danger pull-right mail-info badge">5</span>
+                    </a>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="javascript:;" class="">
+                        <i class="icon_table"></i>
+                        <span>Tables</span>
+                        <span class="menu-arrow arrow_carrot-right"></span>
+                    </a>
+                    <ul class="sub">
+                        <li><a class="" href="../basic_table.html">Basic Table</a></li>
+                        <li><a class="" href="../dynamic_table.html">Dynamic Table</a></li>
+                    </ul>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="javascript:;" class="">
+                        <i class="icon_documents_alt"></i>
+                        <span>Pages</span>
+                        <span class="menu-arrow arrow_carrot-right"></span>
+                    </a>
+                    <ul class="sub">
+                        <li><a class="" href="../profile.html">Profile</a></li>
+                        <li><a class="" href="../invoice.html">Invoice</a></li>
+                        <li><a class="" href="../timeline.html">Timeline</a></li>
+                        <li><a class="" href="../chat.html">Chat</a></li>
+                        <li><a class="" href="../faqs.html">FAQs</a></li>
+                        <li><a class="" href="../blank.html">Blank Page</a></li>
+                        <li><a class="" href="../404.html">404 Error</a></li>
+                        <li><a class="" href="../503.html">503 Error</a></li>
+                        <li><a class="" href="../maintenance.html">Maintenance</a></li>
+                    </ul>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="javascript:;" class="">
+                        <i class="icon_key_alt"></i>
+                        <span>Login Pages</span>
+                        <span class="menu-arrow arrow_carrot-right"></span>
+                    </a>
+                    <ul class="sub">
+                        <li><a class="" href="../login-2.html">Login</a></li>
+                        <li><a class="" href="../register.html">Register</a></li>
+                        <li><a class="" href="../recoverpw.html">Recover</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- sidebar menu end-->
+        </div>
+    </aside>
+    <!--sidebar end-->
+
+    <!--main content start-->
+    <section id="main-content">
+        <section class="wrapper">
+            <!-- page start-->
+            <div class="row">
+                <div class="col-lg-12">
+                    <!--breadcrumbs start -->
+                    <ul class="breadcrumb">
+                        <li><a href="container4.html#"><i class="icon_house_alt"></i> Home</a></li>
+                        <li><a href="container4.html#">Spider AJAX/PHP Form</a></li>
+                        <li class="active">Customizing Error/li>
+                    </ul>
+                    <!--breadcrumbs end -->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <!--notification start-->
+                    <section class="panel">
+                        <header class="panel-heading">
+                            Customizing errors
+                        </header>
+                        <div class="panel-body">
+                            <form id="defaultForm" method="post" class="form-horizontal" action="http://www.bylancer.com/product/byadmin/premium-form/target.php">
+                                <div class="form-group">
+                                    <label class="col-lg-3 control-label">Full name</label>
+                                    <div class="col-lg-4">
+                                        <input type="text" class="form-control" name="firstName" placeholder="First name" />
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <input type="text" class="form-control" name="lastName" placeholder="Last name" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-lg-3 control-label">Username</label>
+                                    <div class="col-lg-5">
+                                        <input type="text" class="form-control" name="username" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-lg-3 control-label">Email address</label>
+                                    <div class="col-lg-5">
+                                        <input type="text" class="form-control" name="email" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-lg-3 control-label">Password</label>
+                                    <div class="col-lg-5">
+                                        <input type="password" class="form-control" name="password" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-lg-3 control-label">Gender</label>
+                                    <div class="col-lg-5">
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="gender" value="male" /> Male
+                                            </label>
+                                        </div>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="gender" value="female" /> Female
+                                            </label>
+                                        </div>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="gender" value="other" /> Other
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group hide">
+                                    <div class="col-lg-9 col-lg-offset-3">
+                                        <ul id="errors"></ul>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-lg-9 col-lg-offset-3">
+                                        <button type="submit" class="btn btn-primary">Sign up</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <!-- page end-->
+        </section>
+    </section>
+    <!--main content end-->
+</section>
+<!-- container section end -->
+<!-- javascripts -->
+<script src="../js/jquery.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<!-- nice scroll -->
+<script src="../js/jquery.scrollTo.min.js"></script>
+<script src="../js/jquery.nicescroll.js" type="text/javascript"></script><!--custome script for all page-->
+<script src="../js/scripts.js"></script>
+<!--script for this page only-->
+<script type="text/javascript" src="../assets/spider_form/dist/js/formValidation.js"></script>
+<script type="text/javascript" src="../assets/spider_form/dist/js/framework/bootstrap.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#defaultForm')
+                .formValidation({
+                    message: 'This value is not valid',
+                    icon: {
+                        valid: 'glyphicon glyphicon-ok',
+                        invalid: 'glyphicon glyphicon-remove',
+                        validating: 'glyphicon glyphicon-refresh'
+                    },
+                    fields: {
+                        firstName: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The first name is required and cannot be empty'
+                                }
+                            }
+                        },
+                        lastName: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The last name is required and cannot be empty'
+                                }
+                            }
+                        },
+                        username: {
+                            message: 'The username is not valid',
+                            validators: {
+                                notEmpty: {
+                                    message: 'The username is required and cannot be empty'
+                                },
+                                stringLength: {
+                                    min: 6,
+                                    max: 30,
+                                    message: 'The username must be more than 6 and less than 30 characters long'
+                                },
+                                regexp: {
+                                    regexp: /^[a-zA-Z0-9_\.]+$/,
+                                    message: 'The username can only consist of alphabetical, number, dot and underscore'
+                                }
+                            }
+                        },
+                        email: {
+                            validators: {
+                                emailAddress: {
+                                    message: 'The input is not a valid email address'
+                                }
+                            }
+                        },
+                        password: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The password is required and cannot be empty'
+                                },
+                                different: {
+                                    field: 'username',
+                                    message: 'The password cannot be the same as username'
+                                }
+                            }
+                        },
+                        gender: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The gender is required'
+                                }
+                            }
+                        }
+                    }
+                })
+                .on('err.field.fv', function(e, data) {
+                    var messages = data.fv.getMessages(data.field);
+                    $('#errors').find('li[data-fv-for="' + data.field + '"]').remove();
+                    for (var i in messages) {
+                        $('<li/>').attr('data-fv-for', data.field).html(messages[i]).appendTo('#errors');
+                    }
+                    $('#errors').parents('.form-group').removeClass('hide');
+                })
+                .on('success.field.fv', function(e, data) {
+                    $('#errors').find('li[data-fv-for="' + data.field + '"]').remove();
+                })
+                .on('success.form.fv', function(e) {
+                    $('#errors')
+                            .html('')
+                            .parents('.form-group').addClass('hide');
+                });
+    });
+</script>
+</body>
+</html>

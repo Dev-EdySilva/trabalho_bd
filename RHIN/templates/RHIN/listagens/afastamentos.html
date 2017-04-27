@@ -1,0 +1,61 @@
+{% extends 'RHIN/base.html' %}
+{% load static %}
+{% block title %} Listagem de cargos | RHIN  {% endblock %}
+
+{% block content %}
+
+	
+
+	    <div class="row">
+                  <div class="col-lg-12">
+                      <section class="panel">
+                          <header class="panel-heading">
+                              Relatório de afstamentos
+                          </header>
+                          <table class="table table-striped border-top" id="sample_1">
+  <thead>
+    <tr>
+      <th>Descrição</th>
+      <th>Inicia em</th>
+      <th>Termina em</th>
+      <th>Funcionário</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>  
+    {% for f in ferias %}
+    <tr class="odd gradeX">
+      <td>{{ f.description }}</td>
+      <td>{{ f.start }}</td>
+      <td>{{ f.end }}</td>
+      <td>{{ f.funcionario }}</td>
+      <td>
+        <!-- <a href="../detalhes/{{ worker.id }}">Detalhes</a> |
+        <a href="../excluir/{{ worker.id }}">Excluir</a> -->
+      </td>
+    </tr>
+
+    {% endfor %}
+    
+  </tbody>
+</table>
+                      </section>
+                  </div>
+              </div>
+
+
+
+
+{% endblock content %}
+
+{% block scripts %}
+	
+	<script type="text/javascript" src="{% static 'RHIN/assets/data-tables/jquery.dataTables.js' %}"></script>
+    <script type="text/javascript" src="{% static 'RHIN/assets/data-tables/DT_bootstrap.js' %}"></script>
+    <!-- dynamic table cuatom script for this page only-->
+    <script src="{% static 'RHIN/js/dynamic-table.js' %}"></script>
+    <!--custome script for all page-->
+    <script src="{% static 'RHIN/js/scripts.js' %}"></script>
+
+{% endblock scripts %}
