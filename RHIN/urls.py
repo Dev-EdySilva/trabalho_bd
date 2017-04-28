@@ -27,5 +27,6 @@ urlpatterns = [
 
 	url(r'ws/teste/', views.testeAjaxRequest, name='testeAjaxRequest'),
 	url(r'^horario/cadastrar/$', views.addHorario, name='addHorario'),
+	url(r'^horario/consultar/$', views.lisagemHorarios, name='lisagemHorarios'),
 	url(r'^ws/registrar-horario/$', views.registerHorario, name='registerHorario'),
 ]

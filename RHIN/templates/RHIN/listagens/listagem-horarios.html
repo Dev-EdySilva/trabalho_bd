@@ -1,0 +1,63 @@
+{% extends 'RHIN/base.html' %}
+{% load static %}
+{% block title %} Listagem de cargos | RHIN  {% endblock %}
+
+{% block content %}
+
+	
+
+	    <div class="row">
+                  <div class="col-lg-12">
+                      <section class="panel">
+                          <header class="panel-heading">
+                              Listagem de horários
+                          </header>
+                          <table class="table table-striped border-top" id="sample_1">
+                            <thead>
+                              <tr>
+                                <th>Descrição turno</th>
+                                <th>Cargo</th>
+
+                                <th></th>
+                              </tr>
+                            </thead>
+                            <tbody>  
+                              
+                              {% for h in data %}
+                              <tr class="odd gradeX">
+                                <td>{{ h.turno }}</td>
+                                <td>{{ h.cargo.description }}</td>
+                                <td></td>
+                              </tr>
+                              {% endfor %}
+
+                              
+                            </tbody>
+                          </table>
+                      </section>
+                  </div>
+              </div>
+
+
+
+
+{% endblock content %}
+
+{% block scripts %}
+	
+<!-- custom script for this  -->
+<!-- charts scripts -->
+<script src="{% static 'RHIN/assets/morris.js-0.4.3/morris.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'RHIN/assets/morris.js-0.4.3/raphael-min.js' %}" type="text/javascript"></script>
+
+<!-- custom chart script for this page only-->
+<script src="{% static 'RHIN/js/morris-script.js' %}"></script>
+  
+	<script type="text/javascript" src="{% static 'RHIN/assets/data-tables/jquery.dataTables.js' %}"></script>
+    <script type="text/javascript" src="{% static 'RHIN/assets/data-tables/DT_bootstrap.js' %}"></script>
+    <!-- dynamic table cuatom script for this page only-->
+    <script src="{% static 'RHIN/js/dynamic-table.js' %}"></script>
+    <!--custome script for all page-->
+    <script src="{% static 'RHIN/js/scripts.js' %}"></script>
+
+{% endblock scripts %}

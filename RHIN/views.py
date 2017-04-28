@@ -276,5 +276,18 @@ def registerHorario(request):
 
 	return HttpResponse("Method not allowed")
 
+
+
+def lisagemHorarios(request):
+
+	hours = Horario.objects.all()
+	data=[]
+	
+	for hour in hours :
+		data.append({'turno':hour.descricao_turno, 'cargo':Cargo.objects.get(pk=hour.cargo_id)})
+
+	return render(request, 'RHIN/listagens/listagem-horarios.html', {'data' : data})
+
+
 def testeAjaxRequest(request):
 	return HttpResponse("TESTANDO")
