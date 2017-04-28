@@ -8,7 +8,7 @@ class AuthMiddleware(object):
 
 	def __call__(self, request):
 
-		user = User.objects.get(pk=1)
+		# user = User.objects.get(pk=1)
 
 		try:
 			data = (request.session['auth'])

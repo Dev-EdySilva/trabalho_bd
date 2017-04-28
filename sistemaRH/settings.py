@@ -75,26 +75,26 @@ WSGI_APPLICATION = 'sistemaRH.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'geeksilva$sys_rhin',
-        'USER': 'geeksilva',
-        'PASSWORD': '3dy$!lv4',
-        'HOST': 'geeksilva.mysql.pythonanywhere-services.com'
-    }
-}
-
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'sys_rhin',
-#         'USER': 'root',
-#         'PASSWORD': '',
-#         'HOST': '/opt/lampp/var/mysql/mysql.sock',
-#         'PORT': '3306'
+#         'NAME': 'geeksilva$sys_rhin',
+#         'USER': 'geeksilva',
+#         'PASSWORD': '3dy$!lv4',
+#         'HOST': 'geeksilva.mysql.pythonanywhere-services.com'
 #     }
 # }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'sys_rhin',
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': '/opt/lampp/var/mysql/mysql.sock',
+        'PORT': '3306'
+    }
+}
 
 
 # Password validation
@@ -139,5 +139,7 @@ PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
 
 STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static"),
+    'static',
 )
 
