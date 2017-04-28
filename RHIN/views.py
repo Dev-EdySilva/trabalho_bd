@@ -14,36 +14,80 @@ def main(request):
 	return render( request, 'RHIN/base.html', {} )
 
 
+
+def updateFuncionario(request):
+
+	if request.method == 'POST':
+		data = request.POST
+
+		funcionario = Funcionario.objects.get(pk=data['funcionario_id'])
+
+		funcionario.first_name=data['first_name']
+		funcionario.last_name=data['last_name']
+		funcionario.cpf=data['cpf']
+		funcionario.rg=data['rg']
+		funcionario.cep=data['cep']
+		funcionario.address=data['address']
+		funcionario.city=data['city']
+		funcionario.phone1=data['phone1']
+		funcionario.phone2=data['phone2']
+		funcionario.cargo=Cargo.objects.get(pk=data['cargo'])
+		funcionario.horario=Horario.objects.get(pk=data['horario'])
+
+		try:
+			funcionario.save()
+			return redirect('/funcionario/consultar')
+		except Exception as e:
+			return HttpResponse("")
+
+		
+
+		return HttpResponse("")
+	
+
+
 # view de cadastro de um novo funcionário
 def addWorker(request):
 
 	# Listando todos os cargos
 	cargos = Cargo.objects.all()
 
+	# listagem de horarios
+	hours = Horario.objects.all()
+
 	if request.method == "POST":
 		data =request.POST
-		worker = Funcionario(
-			first_name=data.get("first_name"),
-			last_name=data.get("last_name"),
-			cpf=data.get("cpf"),
-			cep=data.get("cep"),
-			address=data.get("address"),
-			city=data.get("city"),
-			phone1=data.get("phone1"),
-			phone2=data.get("phone2"),
-			born_date='2017-05-20',
-			gender=1,
-			sal=data.get("sal"),
-			cargo_id=data.get("cargo")
+		print(data)
+
+		funcionario = Funcionario(
+			first_name=data['first_name'],
+			last_name=data['last_name'],
+			cpf=data['cpf'],
+			cep=data['cep'],
+			address=data['address'],
+			city=data['city'],
+			phone1=data['phone1'],
+			phone2=data['phone2'],
+			rg=data['rg'],
+			salario=data['sal'],
+			born_date='1997-04-07',
+			gender=0,
+			cargo=Cargo.objects.get(pk=1),
+			horario=Horario.objects.get(pk=1)
 		)
+
+		
+
 
 
 		try:
 			# registrando novo funcionario
-			worker.save()
+			funcionario.save()
+			
 
-			return render(request, 'RHIN/registrar-funcionario.html', {
+			return render(request, 'RHIN/cadastros/cadastrar-funcionario.html', {
 				'cargos' : cargos,
+				'horarios' : hours,
 				'message' : "Funcionário registrado com sucesso",
 				'type': "success"
 			})
@@ -56,8 +100,9 @@ def addWorker(request):
 
 
 
-	return render(request, 'RHIN/registrar-funcionario.html', {
+	return render(request, 'RHIN/cadastros/cadastrar-funcionario.html', {
 		'cargos' : cargos,
+		'horarios' : hours,
 		'message' : '',
 		'type' : ''
 	})
@@ -71,7 +116,7 @@ def listWorkers(request):
 
 	for f in funcs:
 		cargo = Cargo.objects.get(pk=f.cargo_id).description
-		workers.append({'id':f.id, 'first_name' : f.first_name, 'last_name':f.last_name, 'phone1':f.phone1, 'phone2':f.phone2, 'sal':f.sal, 'cargo':cargo})
+		workers.append({'id':f.id, 'first_name' : f.first_name, 'last_name':f.last_name, 'phone1':f.phone1, 'phone2':f.phone2, 'salario':f.salario, 'cargo':cargo})
 
 
 	return render(request, 'RHIN/listagem-funcionarios.html', {
@@ -104,9 +149,13 @@ def detailsWorker(request, funcionario_id):
 	cargos = Cargo.objects.all()
 	worker = Funcionario.objects.get(pk=funcionario_id)
 
+	# listagem de horarios
+	hours = Horario.objects.all()
+
 	return render( request, 'RHIN/detalhes-funcionario.html', {
 		'worker' : worker,
-		'cargos' : cargos
+		'cargos' : cargos,
+		'horarios' : hours
 	})
 
 	# return HttpResponse("Funcionario <strong>%s %s</strong>"%(worker.first_name, worker.last_name))
@@ -252,7 +301,7 @@ def registerHorario(request):
 			print(jsonData)
 
 			try:
-				h = Horario(descricao_turno=jsonData['description'], cargo=Cargo(pk=jsonData['cargo']))
+				h = Horario(descricao_turno=jsonData['description'])
 				h.save()
 
 				dias = jsonData['dias']
@@ -281,12 +330,10 @@ def registerHorario(request):
 def lisagemHorarios(request):
 
 	hours = Horario.objects.all()
-	data=[]
 	
-	for hour in hours :
-		data.append({'turno':hour.descricao_turno, 'cargo':Cargo.objects.get(pk=hour.cargo_id)})
+	
 
-	return render(request, 'RHIN/listagens/listagem-horarios.html', {'data' : data})
+	return render(request, 'RHIN/listagens/listagem-horarios.html', {'data' : hours})
 
 
 def testeAjaxRequest(request):

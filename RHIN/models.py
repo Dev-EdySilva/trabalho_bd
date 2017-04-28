@@ -27,11 +27,7 @@ class Horario(models.Model):
 		db_table='horario'
 
 	descricao_turno = models.CharField(max_length=120, default="")
-	cargo = models.OneToOneField(
-		Cargo,
-		on_delete=models.CASCADE
-	)
-
+	
 
 	def __str__(self):
 		return self.descricao_turno
@@ -72,7 +68,13 @@ class Funcionario(models.Model):
 		'Cargo',
 		on_delete=models.CASCADE
 	)
-	sal = models.FloatField(default=0)
+
+	horario = models.ForeignKey(
+		Horario,
+		on_delete=models.CASCADE
+	)
+
+	salario = models.FloatField(default=None)
 
 
 
@@ -113,10 +115,10 @@ class User(models.Model):
 	username = models.CharField(max_length=120, default='')
 	password = models.CharField(max_length=50, default='')
 	is_active = models.IntegerField(default=1)
-	funcionario = models.ForeignKey(
-		'Funcionario',
-		on_delete=models.CASCADE
-	)
+	# funcionario = models.ForeignKey(
+	# 	'Funcionario',
+	# 	on_delete=models.CASCADE
+	# )
 
 	def __str__(self):
 		return self.username

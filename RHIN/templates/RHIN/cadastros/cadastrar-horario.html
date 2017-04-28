@@ -42,22 +42,10 @@
 
                                   <div class="form-group">
                                       <label class="col-sm-2 control-label">Descrição turno</label>
-                                      <div class="col-sm-4">
+                                      <div class="col-sm-6">
                                           <input type="text" class="form-control" name="description" data-check="desc">
 
                                           <p class="text-danger" message-check="desc">*Preencha este campo</p>
-                                      </div>
-
-                                      <label class="col-sm-2 control-label">Cargo</label>
-                                      <div class="col-sm-4">
-                                          <select name="cargo" class="form-control" data-check="cargo">
-                                            <option value="">Selecione</option>
-                                            {% for cargo in cargos %}
-                                              <option value="{{ cargo.id }}">{{ cargo.description }}</option>
-                                            {% endfor %}
-                                          </select>
-
-                                          <p class="text-danger" message-check="cargo">*Selecione um item</p>
                                       </div>
                                   </div>
 

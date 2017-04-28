@@ -16,8 +16,6 @@
                             <thead>
                               <tr>
                                 <th>Descrição turno</th>
-                                <th>Cargo</th>
-
                                 <th></th>
                               </tr>
                             </thead>
@@ -25,8 +23,7 @@
                               
                               {% for h in data %}
                               <tr class="odd gradeX">
-                                <td>{{ h.turno }}</td>
-                                <td>{{ h.cargo.description }}</td>
+                                <td>{{ h }}</td>
                                 <td></td>
                               </tr>
                               {% endfor %}
