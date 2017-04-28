@@ -2,9 +2,11 @@
 
 from django.shortcuts import render, redirect
 from django.urls import reverse
-from django.http import HttpResponse, HttpResponseRedirect
-from .models import Cargo, Funcionario, User, Ferias
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
+from .models import Cargo, Funcionario, User, Ferias, Horario, DiaHorario
 from django.core.serializers import serialize
+
+import json
 
 # Create your views here.
 
@@ -230,3 +232,49 @@ def reportFerias(request):
 def reportAfastamentos(request):
 	ferias = Ferias.objects.filter(flg_type=1)
 	return render(request, 'RHIN/listagens/afastamentos.html', {'ferias':ferias})
+
+def addHorario(request):
+	if request.method=='POST':
+		pass
+
+	cargos = Cargo.objects.all()	
+	return render(request, 'RHIN/cadastros/cadastrar-horario.html', {'cargos':cargos})
+
+
+
+def registerHorario(request):
+
+	if request.is_ajax():
+		if request.method == 'POST':
+			
+			jsonData = json.loads( request.POST['data'] )
+
+			print(jsonData)
+
+			try:
+				h = Horario(descricao_turno=jsonData['description'], cargo=Cargo(pk=jsonData['cargo']))
+				h.save()
+
+				dias = jsonData['dias']
+
+				for dia in dias:
+					DiaHorario.objects.create(
+						inicio1=dia['inicio1'],
+						fim1=dia['fim1'],
+						inicio2=dia['inicio2'],
+						fim2=dia['fim2'],
+						dia=dia['dia'],
+						horario=h
+					)
+
+				return JsonResponse({'message':'Horário registrado com sucesso', 'code':1})
+
+			except Exception as e:
+				return JsonResponse({'message':'Falha ao registrar', 'code':0})
+
+	
+
+	return HttpResponse("Method not allowed")
+
+def testeAjaxRequest(request):
+	return HttpResponse("TESTANDO")

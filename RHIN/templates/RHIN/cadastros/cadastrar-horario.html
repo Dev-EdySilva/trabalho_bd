@@ -1,0 +1,265 @@
+{% extends 'RHIN/base.html' %}
+
+{% block title %} Registrar Cargo | RHIN  {% endblock %}
+
+{% block styles %}
+  
+  <style type="text/css">
+    
+  [message-check]{
+    display: none;
+  }
+
+  </style>
+
+{% endblock styles %}
+
+{% block content %}
+	
+
+	<div class="row">
+		
+		<div class="col-lg-12">
+			
+			<section class="panel">
+                          <header class="panel-heading">
+                             Cadastrar Horário
+                          </header>
+                          <div class="panel-body">
+                              <form class="form-horizontal">
+
+                              {% csrf_token %}
+
+                              {% if message %}
+                              <div class="form-group">
+                              	<div class="col-sm-12">
+                              		<div class="alert alert-{{ type }}">
+                              			{{ message }}
+                              		</div>
+                              	</div>
+                              </div>
+                              {% endif %}
+
+                                  <div class="form-group">
+                                      <label class="col-sm-2 control-label">Descrição turno</label>
+                                      <div class="col-sm-4">
+                                          <input type="text" class="form-control" name="description" data-check="desc">
+
+                                          <p class="text-danger" message-check="desc">*Preencha este campo</p>
+                                      </div>
+
+                                      <label class="col-sm-2 control-label">Cargo</label>
+                                      <div class="col-sm-4">
+                                          <select name="cargo" class="form-control" data-check="cargo">
+                                            <option value="">Selecione</option>
+                                            {% for cargo in cargos %}
+                                              <option value="{{ cargo.id }}">{{ cargo.description }}</option>
+                                            {% endfor %}
+                                          </select>
+
+                                          <p class="text-danger" message-check="cargo">*Selecione um item</p>
+                                      </div>
+                                  </div>
+
+                                  <div class="form-group">
+
+                                  <div class="col-sm-12">
+                                    <p style="text-align: center;">Adicione os dias</p>
+                                    <br>
+                                  </div>
+
+                                    <div class="col-sm-12">
+                                        
+                                         <table class="table table-bordered">
+                                          <thead>
+                                            <tr>
+                                              <th></th>
+                                              <th>Dia</th>
+                                              <th>Inicio 1</th>
+                                              <th>Fim 1</th>
+                                              <th>Inicio 2</th>
+                                              <th>Fim 2</th>
+                                            </tr>
+                                          </thead>
+
+                                          <tbody class="days">
+                                           
+                                          </tbody>
+                                        </table>
+
+                                    </div>
+                                  </div>
+                             
+                                  
+
+                                  <div class="form-group">
+                                  	<div class="col-lg-10 col-lg-offset-2">
+                                  		<button class="btn btn-default" name="registrar-horario">Registrar</button>
+                                  	</div>
+                                  </div>
+                              </form>
+                          </div>
+                      </section>
+
+
+		</div>
+
+	</div>
+
+	
+
+{% endblock content %}
+
+{% block scripts %}
+  
+  <script type="text/javascript">
+
+    $(function(){     
+
+      var $days = $('tbody.days');
+      var d = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"];
+
+       var fillable = ["inicio1", "fim1", "inicio2", "fim2"];
+
+      for (var i = 0; i < 7; i++) {
+        $days.append('<tr><td><input type="checkbox" name="edit-day" data-day="'+i+'"></td><td>'+d[i]+'</td> <td><input type="text" name="inicio1-'+i+'" class="form-control"disabled=""></td> <td><input type="text" name="fim1-'+i+'" class="form-control" disabled=""></td> <td><input type="text" name="inicio2-'+i+'" class="form-control" disabled=""></td> <td><input type="text" name="fim2-'+i+'" class="form-control" disabled=""></td></tr>');
+      };
+
+
+      $('body').on('click', '[name=edit-day]', function(){
+          var day = $(this).attr("data-day");
+          if( $(this).prop('checked') ){
+            for (var i = 0; i < 4; i++) {
+              var str = fillable[i]+'-'+day;
+              $('input[name='+str+']').removeAttr('disabled');
+            };
+          }else{
+            for (var i = 0; i < 4; i++) {
+              var str = fillable[i]+'-'+day;
+              var $input = $('input[name='+str+']');
+              $input.val("");
+              $input.attr('disabled', 'disabled');
+            };
+          }
+      });
+
+
+      var csrftoken = $("[name=csrfmiddlewaretoken]").val();
+
+      var cleanMessages = function(){
+        $('[data-check]').each(function(){
+            var check = $(this).attr('data-check');
+            $('[message-check='+check+']').css('display', 'none');
+        });
+      };
+
+      $('body').on('click', 'button[name=registrar-horario]', function(){
+          var pass = true;
+          var dias = [];
+          var data= {
+            'description' : '',
+            'cargo' : 0
+          };
+
+          cleanMessages();
+
+          $('[data-check]').each(function(){
+            var $field = $(this);
+            var check = $field.attr('data-check');
+
+            if( $field.val() === "" ){
+
+              $('[message-check='+check+']').css('display', 'block');
+              $field.focus();
+
+
+              pass = false;
+
+              return pass;
+            }
+
+            data[$field.attr('name')] = $field.val();
+
+          });
+
+
+          // verificando dias
+          $('input[name=edit-day]').each(function(){
+
+              var t = $(this).prop('checked');
+              if( t ){
+                var day = $(this).attr("data-day");
+
+                var d = {
+                  'inicio1' : '',
+                  'fim1' : '',
+                  'inicio2' : '',
+                  'fim2' : '',
+                  'dia' : day
+                };
+
+                for (var i = 0; i < 4; i++) {
+                  var str = fillable[i]+'-'+day;
+                  var $f = $('input[name='+str+']');
+
+                  d[fillable[i]] = $f.val();
+                };
+
+                dias.push(d);
+
+              }
+
+          });
+
+          data['dias'] = dias;
+          
+
+          if(pass){
+
+            if( data.dias.length > 0 ){
+
+               $.ajax({
+                type : "POST",
+                url : '/ws/registrar-horario/',
+                dataType : 'json',
+                contentType : 'application/x-www-form-urlencoded',
+                async : true,
+                data : {
+                  data : JSON.stringify( data ),
+                  csrfmiddlewaretoken: csrftoken
+                }, 
+
+
+                success : function(data){
+                  
+                  alert(data.message);
+
+                }, 
+
+                error : function(err){
+                  console.log(err);
+                }
+              });
+
+            }else{
+              alert("Informe o horário de pelo menos um dia");
+            }
+
+          }
+
+          return false;
+      });
+
+
+     
+      
+
+    });
+
+    
+
+
+  </script>
+
+{% endblock scripts %}
+

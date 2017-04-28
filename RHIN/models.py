@@ -20,6 +20,39 @@ class Cargo(models.Model):
 		db_table="cargo"
 
 
+
+class Horario(models.Model):
+	
+	class Meta():
+		db_table='horario'
+
+	descricao_turno = models.CharField(max_length=120, default="")
+	cargo = models.OneToOneField(
+		Cargo,
+		on_delete=models.CASCADE
+	)
+
+
+	def __str__(self):
+		return self.descricao_turno
+
+class DiaHorario(models.Model):
+	
+	class Meta():
+		db_table='dia_horario'
+
+	inicio1=models.TimeField(default=None)
+	fim1=models.TimeField(default=None)
+	inicio2=models.TimeField(default=None)
+	fim2=models.TimeField(default=None)
+	dia =  models.IntegerField(default=None)
+	horario = models.ForeignKey(
+		Horario,
+		on_delete=models.CASCADE
+	)
+		
+
+
 class Funcionario(models.Model):
 	"""docstring for Funcionario"""
 
@@ -92,6 +125,9 @@ class User(models.Model):
 		"""docstring for Met"""
 		
 		db_table='user'
+
+
+
 			
 		
 			
