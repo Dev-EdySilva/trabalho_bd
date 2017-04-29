@@ -15,6 +15,10 @@ def main(request):
 
 
 
+def delFuncionario(request, funcionario_id):
+	Funcionario.objects.get(pk=funcionario_id).delete()
+	return redirect('/funcionario/consultar')
+
 def updateFuncionario(request):
 
 	if request.method == 'POST':

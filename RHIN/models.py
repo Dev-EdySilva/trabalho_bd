@@ -56,11 +56,11 @@ class Funcionario(models.Model):
 	first_name=models.CharField(max_length=100, default="")
 	last_name=models.CharField(max_length=100, default="")
 	cpf = models.CharField(max_length=14, default="")  # 123.123.123-12
-	cep = models.CharField(max_length=9, default="") # 61949-010 
+	cep = models.CharField(max_length=10, default="") # 61949-010 
 	address = models.CharField(max_length=40, default="")
 	city = models.CharField(max_length=30, default="")
-	phone1 = models.CharField(max_length=15, default="") # (85) 98974-0984
-	phone2 = models.CharField(max_length=15, default="") # (85) 98974-0984
+	phone1 = models.CharField(max_length=30, default="") # (85) 98974 - 0984
+	phone2 = models.CharField(max_length=30, default="") # (85) 98974-0984
 	born_date = models.DateField(default=None)
 	gender = models.IntegerField(default=None)
 	rg = models.CharField(max_length=30, default="")

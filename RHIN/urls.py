@@ -9,6 +9,7 @@ urlpatterns = [
 	url(r'^funcionario/consultar/$', views.listWorkers, name='listWorkers'),
 	# url(r'^funcionario/register/$', views.registerWorker, name='registerWorker'),
 	url(r'^funcionario/detalhes/([0-9]{1,})/$', views.detailsWorker, name='detailsWorker'),
+	url(r'^funcionario/excluir/([0-9]{1,})/$', views.delFuncionario, name='delFuncionario'),
 	url(r'^funcionario/atualizar/$', views.updateFuncionario, name='updateFuncionario'),
 	url(r'^funcionario/registrar-afastamento/([0-9]{1,})/$', views.addAfastamento, name='addAfastamento'),
 	url(r'^funcionario/registrar-afastamento/$', views.registerAfastamento, name='registerAfastamento'),
