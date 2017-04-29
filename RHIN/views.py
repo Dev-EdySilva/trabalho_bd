@@ -59,8 +59,10 @@ def addWorker(request):
 		data =request.POST
 		print(data)
 
+		# 99/99/9999
+
 		dt = data['born_date'].split('/')
-		born_date=dt[0]+'-'+dt[1]+'-'+dt[2]
+		born_date=dt[2]+'-'+dt[1]+'-'+dt[1]
 
 		funcionario = Funcionario(
 			first_name=data['first_name'],
