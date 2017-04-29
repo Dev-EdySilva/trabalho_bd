@@ -114,6 +114,14 @@
       };
 
 
+      $('body').on('input', '.days input', function(){
+            var s = $(this).val();
+            s = s.replace(/\D/g, '');
+            s = s.replace(/^(\d\d)(\d)/,"$1:$2");
+            $(this).val(s.substring(0, 5));
+      });
+
+
       $('body').on('click', '[name=edit-day]', function(){
           var day = $(this).attr("data-day");
           if( $(this).prop('checked') ){

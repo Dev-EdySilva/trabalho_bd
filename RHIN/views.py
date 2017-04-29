@@ -59,6 +59,9 @@ def addWorker(request):
 		data =request.POST
 		print(data)
 
+		dt = data['born_date'].split('/')
+		born_date=dt[0]+'-'+dt[1]+'-'+dt[2]
+
 		funcionario = Funcionario(
 			first_name=data['first_name'],
 			last_name=data['last_name'],
@@ -70,8 +73,8 @@ def addWorker(request):
 			phone2=data['phone2'],
 			rg=data['rg'],
 			salario=data['sal'],
-			born_date='1997-04-07',
-			gender=0,
+			born_date=born_date,
+			gender=data['gender'],
 			cargo=Cargo.objects.get(pk=1),
 			horario=Horario.objects.get(pk=1)
 		)
