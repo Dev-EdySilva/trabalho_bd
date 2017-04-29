@@ -77,8 +77,8 @@ def addWorker(request):
 			salario=data['sal'],
 			born_date=born_date,
 			gender=data['gender'],
-			cargo=Cargo.objects.get(pk=1),
-			horario=Horario.objects.get(pk=1)
+			cargo=Cargo.objects.get(pk=data['cargo']),
+			horario=Horario.objects.get(pk=data['horario'])
 		)
 
 		
