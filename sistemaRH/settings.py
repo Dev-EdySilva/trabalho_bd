@@ -85,16 +85,16 @@ DATABASES = {
     }
 }
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'sys_rhin',
-#         'USER': 'root',
-#         'PASSWORD': '',
-#         'HOST': '/opt/lampp/var/mysql/mysql.sock',
-#         'PORT': '3306'
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'sys_rhin',
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': '/opt/lampp/var/mysql/mysql.sock',
+        'PORT': '3306'
+    }
+}
 
 
 # Password validation

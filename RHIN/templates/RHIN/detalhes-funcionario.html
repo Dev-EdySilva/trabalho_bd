@@ -45,7 +45,7 @@
                                   <div class="form-group">
                                       <label class="col-sm-2 control-label">CPF</label>
                                       <div class="col-sm-4">
-                                          <input type="text" class="form-control" name="cpf" value="{{ worker.cpf }}">
+                                          <input type="text" class="form-control" name="cpf" value="{{ worker.cpf }}" cpf-mask>
                                           <span class="help-block">Somente números</span>
                                       </div>
 
@@ -59,13 +59,13 @@
                                   <div class="form-group">
                                       <label class="col-sm-2 control-label">Fone 1</label>
                                       <div class="col-sm-4">
-                                          <input type="text" class="form-control" name="phone1" value="{{ worker.phone1 }}">
+                                          <input type="text" class="form-control" name="phone1" value="{{ worker.phone1 }}" fone-mask >
                                           <span class="help-block">Somente números</span>
                                       </div>
 
                                       <label class="col-sm-2 control-label">Fone 2</label>
                                       <div class="col-sm-4">
-                                          <input type="text" class="form-control" name="phone2" value="{{ worker.phone2 }}">
+                                          <input type="text" class="form-control" name="phone2" value="{{ worker.phone2 }}" fone-mask >
                                           <span class="help-block">Somente números</span>
                                       </div>
                                   </div>
@@ -73,7 +73,7 @@
                                    <div class="form-group">
                                   	<label class="col-sm-2 control-label">CEP</label>
                                   	<div class="col-sm-6">
-                                  		<input type="text" name="cep" class="form-control" value="{{ worker.cep }}">
+                                  		<input type="text" name="cep" class="form-control" value="{{ worker.cep }}" cep-mask >
                                   	</div>
                                   </div>
 
